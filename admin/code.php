@@ -168,6 +168,21 @@ elseif(isset($_POST['delete_commonPage']))
         redirect("commonPages.php", "Something Went Wrong");
     }
 }
+elseif(isset($_POST['deleteCountryState']))
+{
+    $userId = mysqli_real_escape_string($con, $_POST['id']);
+
+    $delete_query = "DELETE FROM common_pages WHERE id = '$userId'";
+    $delete_query_run = mysqli_query($con, $delete_query);
+    if($delete_query_run)
+    {
+        redirect("state.php", "Common Page deleted Successfully");
+    }
+    else
+    {   
+        redirect("state.php", "Something Went Wrong");
+    }
+}
 
 
 // Create Sub Admin 

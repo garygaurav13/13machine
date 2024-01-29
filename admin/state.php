@@ -57,6 +57,7 @@ include('includes/header.php');
                             <tr>
                                 <th>Country</th>
                                 <th>State</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -67,9 +68,24 @@ include('includes/header.php');
                                 foreach($user as $row) { 
                                 ?>
                                 <tr>
+                                   <td><?= $row['countries_name']; ?></td>
                                     <td><?= $row['name']; ?></td>
-                                    <td><?= $row['countries_name']; ?></td>
+                                    <td style="width: 20%;">
+                                        <ul style="display: flex;list-style: none;">
+                                            <!-- <li style="padding: 8px;">
+                                            <a  class="" 
+                                            href="editCategory.php?id=<?= $row['id']; ?>"> 
+                                            <i class="fa fa-edit" style="font-size:24px;color:blue;"></i>
+                                            </a>
+                                            </li> -->
+                                            <form action="code.php" method="post">
+                                                <input type="hidden" name="category_id" value="<?= $row['id']; ?>">
+                                                <button type="submit" class="btn btn-dnager" name="deleteCountryState"><i class="fa fa-trash" style="font-size:24px;color:red;"></i></button>
+                                            </form>
+                                        </ul>
+                                    </td>
                                 </tr>
+
                                 <?php 
                                 }
                             } 
@@ -79,6 +95,7 @@ include('includes/header.php');
                             <tr>
                                 <th>Country</th>
                                 <th>State</th>
+                                <th>Action</th>
                             </tr>
                             </tfoot>
                         </table>
