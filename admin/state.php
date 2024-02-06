@@ -66,6 +66,7 @@ include('includes/header.php');
                             if(mysqli_num_rows($user) > 0)
                             {
                                 foreach($user as $row) { 
+                                    if(!empty($row['name'])){
                                 ?>
                                 <tr>
                                    <td><?= $row['countries_name']; ?></td>
@@ -74,19 +75,20 @@ include('includes/header.php');
                                         <ul style="display: flex;list-style: none;">
                                             <!-- <li style="padding: 8px;">
                                             <a  class="" 
-                                            href="editCategory.php?id=<?= $row['id']; ?>"> 
+                                            href="editCategory.php?id=< ?= $row['id']; ?>"> 
                                             <i class="fa fa-edit" style="font-size:24px;color:blue;"></i>
                                             </a>
                                             </li> -->
                                             <form action="code.php" method="post">
-                                                <input type="hidden" name="category_id" value="<?= $row['id']; ?>">
-                                                <button type="submit" class="btn btn-dnager" name="deleteCountryState"><i class="fa fa-trash" style="font-size:24px;color:red;"></i></button>
+                                                <input type="hidden" name="country_id" value="<?= $row['id']; ?>">
+                                                <button type="submit" class="btn btn-dnager" name="deleteCountryState" value="submit"><i class="fa fa-trash" style="font-size:24px;color:red;"></i></button>
                                             </form>
                                         </ul>
                                     </td>
                                 </tr>
 
                                 <?php 
+                                    }
                                 }
                             } 
                             ?>

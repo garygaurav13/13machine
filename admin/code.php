@@ -170,20 +170,20 @@ elseif(isset($_POST['delete_commonPage']))
 }
 elseif(isset($_POST['deleteCountryState']))
 {
-    $userId = mysqli_real_escape_string($con, $_POST['id']);
+    $userId = mysqli_real_escape_string($con, $_POST['country_id']);
 
-    $delete_query = "DELETE FROM common_pages WHERE id = '$userId'";
+    $delete_query = "DELETE FROM states WHERE id = '$userId'";
+
     $delete_query_run = mysqli_query($con, $delete_query);
     if($delete_query_run)
     {
-        redirect("state.php", "Common Page deleted Successfully");
+        redirect("state.php", "state deleted Successfully");
     }
     else
     {   
         redirect("state.php", "Something Went Wrong");
     }
 }
-
 
 // Create Sub Admin 
 if(isset($_POST['subAdminSubmit']))
@@ -707,7 +707,6 @@ if(isset($_POST['updateProductsSubmit'])){
         redirect("viewProduct.php", "product Not updated Succcessfully");
     }
 }
-
 
 // create Catgeory 
 if(isset($_POST['createCategorySubmit'])){
