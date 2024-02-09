@@ -43,9 +43,8 @@ include('includes/header.php');
                                         <div class="mb-3">
                                             <label for="status" class="form-label">Status</label>
                                             <select class="form-control" name="status" >
-                                                <option value="<?= $data['status'] ?>"><?= $data['status'] ?></option>
-                                                <option value="active">Active</option>
-                                                <option value="deactive">Deactivate</option>
+                                                <option value="active" <?= $data['status'] == 'active' ?'selected':'' ?>>Active</option>
+                                                <option value="deactive" <?= $data['status'] == 'deactive' ?'selected':'' ?>>Deactivate</option>
                                             </select>
                                         </div>
                                         <div class="mb-3">

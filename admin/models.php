@@ -57,13 +57,13 @@ include('includes/header.php');
                   </thead>
                   <tbody>
                   <?php
-                    $user = getCountries("models");                 
+                    $user = getmodelMakes("models","makes");                 
                     if(mysqli_num_rows($user) > 0)
                     {
                         foreach($user as $row)
                         { ?>
                             <tr>
-                                <td><?= $row['makes_id']; ?></td>
+                                <td><?= $row['makes']; ?></td>
                                 <td><?= $row['models']; ?></td>
                                 <td><?= $row['status']; ?></td>
                                 <td><?= $row['created_at']; ?></td>

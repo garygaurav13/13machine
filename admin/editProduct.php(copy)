@@ -33,7 +33,8 @@ include('includes/header.php');
                         <div class="col-md-6">
                             <h4><b>Update Product</b></h4>
                         </div>
-                        <div class="col-md-6"><a href="viewProduct.php" class="btn btn-primary" style="float: right; font-size: 19px; font-weight: 700;">View Products</a></div>
+                        <div class="col-md-6"><a href="viewProduct.php" class="btn btn-primary"
+                                style="float: right; font-size: 19px; font-weight: 700;">View Products</a></div>
                     </div>
                 </div>
                 <div class="card-body">
@@ -164,62 +165,38 @@ include('includes/header.php');
                             <div class="col-md-4">
                                 <label for="machine_condition" class="form-label">Machine Condition</label>
                                 <select required class="form-control" name="machine_condition">
-                                    <option value="used" <?= $data['machine_condition'] == 'used'?'selected':''; ?>>Used</option>
-                                    <option value="new" <?= $data['machine_condition'] == 'new'?'selected':''; ?>>New</option>
+                                    <option value="used" <?= $data['machine_condition'] == 'used'?'selsected':''; ?>>Used</option>
+                                    <option value="new" <?= $data['machine_condition'] == 'new'?'selsected':''; ?>>New</option>
                                 </select>
                             </div>
                             <div class="col-md-4">
                                 <label for="auction_scope" class="form-label">Auction Scope</label>
                                 <select required class="form-control" name="auction_scope">
-                                    <option value="public_inventory" <?= $data['auction_scope'] == 'public_inventory'?'selected':''; ?> >Public Inventory</option>
-                                    <option value="dealer_wholesale_program" <?= $data['auction_scope'] == 'dealer_wholesale_program'?'selected':''; ?> >Dealer Wholesale Program</option>
-                                    <option value="both"  <?= $data['auction_scope'] == 'both'?'selected':''; ?> >Both</option>
+                                    <option value="public_inventory" <?= $data['auction_scope'] == 'public_inventory'?'selsected':''; ?> >Public Inventory</option>
+                                    <option value="dealer_wholesale_program" <?= $data['auction_scope'] == 'dealer_wholesale_program'?'selsected':''; ?> >Dealer Wholesale Program</option>
+                                    <option value="both"  <?= $data['auction_scope'] == 'both'?'selsected':''; ?> >Both</option>
                                 </select>
                             </div>
                             <div class="col-md-4">
                                 <label for="certified" class="form-label">Certified</label>
                                 <select required class="form-control" value="<?= $data['certified']; ?>"
                                     name="certified">
-                                    <option value="y" <?= $data['certified'] == 'y'?'selected':''; ?> >Yes</option>
-                                    <option value="n" <?= $data['certified'] == 'n'?'selected':''; ?> >No</option>
+                                    <option value="y" <?= $data['certified'] == 'y'?'selsected':''; ?> >Yes</option>
+                                    <option value="n" <?= $data['certified'] == 'n'?'selsected':''; ?> >No</option>
                                 </select>
                             </div>
                         </div><br>
 
                         <div class="row">
-			  <div class="col-md-4">
+                            <div class="col-md-4">
                                 <label for="make" class="form-label">Make</label>
-                                <select class="form-control" id="make" name="make">
-                                    <?php
-                                    $user = getAllData("makes");                 
-                                    if(mysqli_num_rows($user) > 0)
-                                    {
-                                        foreach($user as $row)
-                                        { ?>
-                                    <option value="<?= $row['id'] ?>" <?= $data['make'] == $row['id']?'selected':''; ?>><?= $row['makes'] ?></option>
-                                    <?php
-                                        }
-                                    }
-                                    ?>
-                                </select>
-                                <span class="error" id="make-Error"></span>
+                                <input type="text" value="<?= $data['make']; ?>" name="make" required
+                                    class="form-control" placeholder="Enter make"></input>
                             </div>
                             <div class="col-md-4">
                                 <label for="model" class="form-label">model</label>
-                                <select class="form-control" id="model" name="model">
-                                    <?php
-                                    $user = getAllData("models");                 
-                                    if(mysqli_num_rows($user) > 0)
-                                    {
-                                        foreach($user as $row)
-                                        { ?>
-                                    <option value="<?= $row['id'] ?>" <?= $data['model'] == $row['id']?'selected':''; ?>><?= $row['models'] ?></option>
-                                    <?php
-                                        }
-                                    }
-                                    ?>
-                                </select>
-                                <span class="error" id="model-Error"></span>
+                                <input type="text" value="<?= $data['model']; ?>" name="model" required
+                                    class="form-control" placeholder="Enter model"></input>
                             </div>
                             <div class="col-md-4">
                                 <label for="manufacture_year" class="form-label">Manufacture Year</label>
@@ -396,26 +373,20 @@ include('includes/header.php');
                         </div><br>
 
                         <div class="row">
-                        <div class="col-md-3">
+                            <div class="col-md-3">
                                 <label for="liftgate" class="form-label">Liftgate</label>
-                                <select class="form-control" id="liftgate" name="liftgate">
-                                    <option value="yes" <?= $data['liftgate'] == 'yes'?'selected':'';?>>Yes</option>
-                                    <option value="no" <?= $data['liftgate'] == 'no'?'selected':'';?>>No</option>
-                                </select>
+                                <input type="text" name="liftgate" required class="form-control"
+                                    placeholder="Enter Liftgate" value="<?= $data['liftgate']; ?>"></input>
                             </div>
                             <div class="col-md-3">
                                 <label for="extendable" class="form-label">Extendable</label>
-                                <select class="form-control" id="extendable" name="extendable">
-                                    <option value="yes" <?= $data['extendable'] == 'yes'?'selected':'';?>>Yes</option>
-                                    <option value="no" <?= $data['extendable'] == 'no'?'selected':'';?>>No</option>
-                                </select>
+                                <input type="text" name="extendable" required class="form-control"
+                                    placeholder="Enter Extendable" value="<?= $data['extendable']; ?>"></input>
                             </div>
                             <div class="col-md-3">
                                 <label for="equipment" class="form-label">Equipment</label>
-                                <select class="form-control" id="equipment" name="equipment">
-                                    <option value="yes" <?= $data['equipment'] == 'yes'?'selected':'';?>>Yes</option>
-                                    <option value="no" <?= $data['equipment'] == 'no'?'selected':'';?>>No</option>
-                                </select>
+                                <input type="text" name="equipment" required class="form-control"
+                                    placeholder="Enter Equipment" value="<?= $data['equipment']; ?>"></input>
                             </div>
                             <div class="col-md-3">
                                 <label for="serial" class="form-label">Serial</label>

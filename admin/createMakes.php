@@ -25,17 +25,19 @@ include('includes/header.php');
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="code.php" method="post">
+                    <form action="code.php" method="post" id="createmake">
                         <div class="mb-3">
                             <label for="makes" class="form-label">Makes Name</label>
-                            <input type="text" name="makes" class="form-control" placeholder="Enter Makes Name" required>
+                            <input type="text" name="makes" class="form-control" placeholder="Enter Makes Name" id="makes">
+                            <span class="error" id="makes-Error"></span>
                         </div>
                         <div class="mb-3">
                             <label for="role">Status</label>
-                            <select class="form-control" name="status">
+                            <select class="form-control" name="status" id="status">
                                 <option value="active">Active</option>
                                 <option value="deactive">Deactive</option>
                             </select>
+                            <span class="error" id="status-Error"></span>
                         </div>
                         <button type="submit" name="makesSubmit" class="btn btn-primary">Submit</button>
                     </form>
@@ -44,4 +46,17 @@ include('includes/header.php');
         </div>
     </div>
 </div>
+<style>
+#image-Error {
+    color: red;
+    font-weight: 600;
+    font-size: 18px;
+    display: flex;
+}
+.error{
+    color: red;
+    font-weight: 600;
+    font-size: 18px; 
+}
+</style>
 <?php include('includes/footer.php'); ?>

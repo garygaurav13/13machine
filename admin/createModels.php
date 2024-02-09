@@ -25,12 +25,12 @@ include('includes/header.php');
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="code.php" method="post">
+                    <form action="code.php" method="post" id="creteModel">
                         <div class="mb-3">
                             <label for="country_id">Select Makes</label>
                             <select class="form-control" name="makes_id">
                                 <label for="role">Makes</label>
-                                <?php $user = getCountries("makes");  if(mysqli_num_rows($user) > 0){ foreach($user as $row) { ?> 
+                                <?php $user = getmakes("makes");  if(mysqli_num_rows($user) > 0){ foreach($user as $row) { ?> 
                                     <option value="<?= $row['id'] ?>"><?= $row['makes']; ?></option>
                                 <?php } } ?>
                             </select>
@@ -38,7 +38,8 @@ include('includes/header.php');
 
                         <div class="mb-3">
                             <label for="models" class="form-label">Modals Name</label>
-                            <input type="text" name="models" class="form-control" placeholder="Enter Modals Name" required>
+                            <input type="text" name="models" class="form-control" placeholder="Enter Modals Name" id="models">
+                            <span class="error" id="models-Error"></span>
                         </div>
                         <div class="mb-3">
                             <label for="role">Status</label>
@@ -54,4 +55,17 @@ include('includes/header.php');
         </div>
     </div>
 </div>
+<style>
+#image-Error {
+    color: red;
+    font-weight: 600;
+    font-size: 18px;
+    display: flex;
+}
+.error{
+    color: red;
+    font-weight: 600;
+    font-size: 18px; 
+}
+</style>
 <?php include('includes/footer.php'); ?>

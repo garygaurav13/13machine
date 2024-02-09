@@ -124,4 +124,26 @@ function groupconcatenate($table_one,$table_two,$id){
         GROUP BY $table_two.id";
         return $query_run = mysqli_query($con, $sql);
 }
+
+function getmakes($table)
+{
+    global $con;
+    $query = "SELECT * FROM $table WHERE $table.status = 'active'";
+    return $query_run = mysqli_query($con, $query);
+}
+
+
+function getmodelMakes($table1, $table2)
+{
+    global $con;
+    $query = "SELECT $table1.*, $table2.makes  FROM $table1 LEFT JOIN $table2 ON $table1.makes_id=$table2.id";
+    return $query_run = mysqli_query($con, $query);
+}
+// Get All make & model 
+function getAllData($table)
+{
+    global $con;
+    $query = "SELECT * FROM $table WHERE status='active'";
+    return $query_run = mysqli_query($con, $query);
+}
 ?>
